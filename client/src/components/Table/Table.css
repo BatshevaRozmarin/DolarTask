@@ -1,0 +1,31 @@
+.data-table {
+  width: 100%;           
+  max-width: 1000px;     
+  margin: 20px auto;   
+  border-collapse: collapse;
+  font-family: sans-serif;
+  color: white;        
+  background-color: #0f0a0a;
+}
+.data-table th,
+.data-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+  width: 50%;           
+}
+.data-table th {
+  background-color: #454343; 
+  font-weight: bold;
+}
+.data-table tr {
+  transition: background-color 0.3s;
+}
+.data-table tr:hover {
+  background-color: #231e1e; 
+  cursor: pointer;
+}
+.average-row {
+  background-color: #1a1a2e;
+  font-weight: 600;
+}

@@ -1,0 +1,35 @@
+.dashboard {
+    background-color: #0f0a0a;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+.refresh-button {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    border-radius: 12px;
+    background-color: #222;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    box-shadow: 5px 2px 5px rgba(241, 221, 221, 0.2);
+}
+.refresh-button:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 6px 18px rgba(106, 90, 249, 0.5);
+    background: linear-gradient(135deg, #836fff, #6a5af9);
+}
+.refresh-button:active {
+    transform: translateY(-1px) scale(0.98);
+    box-shadow: 0 3px 10px rgba(106, 90, 249, 0.3);
+}
