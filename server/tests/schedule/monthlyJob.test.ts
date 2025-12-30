@@ -2,7 +2,6 @@ import schedule from 'node-schedule';
 import { scheduleMonthlyAveragesJob } from '../../src/schedule/monthlyJob';
 import { sendMonthlyAvgToDb } from '../../src/utils/sendMonthlyAvgToDb';
 
-
 jest.mock('node-schedule', () => ({
   scheduleJob: jest.fn(),
 }));
@@ -12,6 +11,10 @@ jest.mock('../../src/utils/sendMonthlyAvgToDb', () => ({
 }));
 
 describe('scheduleMonthlyAveragesJob', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('should schedule a job and call sendMonthlyAvgToDb', async () => {
     scheduleMonthlyAveragesJob();
 
@@ -27,6 +30,8 @@ describe('scheduleMonthlyAveragesJob', () => {
   });
 
   it('should throw an error if sendMonthlyAvgToDb fails', async () => {
+    scheduleMonthlyAveragesJob(); 
+
     const jobCallback: () => Promise<void> = (schedule.scheduleJob as jest.Mock).mock.calls[0][1];
 
     (sendMonthlyAvgToDb as jest.Mock).mockRejectedValue(new Error('DB error'));
