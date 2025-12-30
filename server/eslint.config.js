@@ -1,26 +1,29 @@
-import { ESLint } from "eslint";
-
-export default [
-  {
-    files: ["**/*.ts"],
-    languageOptions: {
-      parser: "@typescript-eslint/parser",
-      parserOptions: {
-        ecmaVersion: "latest",
-        sourceType: "module"
-      },
-      globals: {
-        process: "readonly",
-        console: "readonly",
-        describe: "readonly",
-        it: "readonly",
-        expect: "readonly",
-        jest: "readonly"
-      }
-    },
-    plugins: ["@typescript-eslint"],
-    rules: {
-      "@typescript-eslint/no-unused-vars": "warn"
+module.exports = {
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module'
+  },
+  env: {
+    node: true,
+    jest: true,
+    es2020: true
+  },
+  globals: {
+    process: 'readonly',
+    console: 'readonly'
+  },
+  plugins: ['@typescript-eslint'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended'
+  ],
+  rules: {
+    '@typescript-eslint/no-unused-vars': 'warn'
+  },
+  overrides: [
+    {
+      files: ['**/*.ts'],
     }
-  }
-];
+  ]
+};
