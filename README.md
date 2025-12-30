@@ -3,17 +3,21 @@
 ## Description
 
 ---
-This project is a web application that tracks and displays the USD to ILS
+This project is a web application that tracks and
+displays the USD to ILS
 exchange rate starting from January 2023.
 
-The data is automatically updated on the first day of each month
+The data is automatically updated on the
+first day of each month
 for the previous month.
 
 The website includes:
 
-- A graph displaying monthly average exchange rates
+- A graph displaying monthly average exchange
+rates
 - A searchable and filterable table by month
-- An additional table with forecasts, differences, and weighted differences
+- An additional table with forecasts,
+differences, and weighted differences
 
 ![MonthlyRates](./asset/MonthlyRates.png)
 

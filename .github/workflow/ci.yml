@@ -17,15 +17,15 @@ jobs:
 
       - name: 📦 Install dependencies (client)
         run: npm install
-        working-directory: ./client
+        working-directory: client
 
       - name: 🧪 Run tests (client)
         run: npm test
-        working-directory: ./client
+        working-directory: client
 
       - name: 🔍 Run Lint (client)
         run: npm run lint
-        working-directory: ./client
+        working-directory: client
 
   test-lint-server:
     runs-on: ubuntu-latest
@@ -40,12 +40,12 @@ jobs:
 
       - name: 📦 Install dependencies (server)
         run: npm install
-        working-directory: ./server
+        working-directory: server
 
       - name: 🧪 Run tests (server)
         run: npm test
-        working-directory: ./server
+        working-directory: server
 
       - name: 🔍 Run Lint (server)
         run: npm run lint
-        working-directory: ./server
+        working-directory: server
