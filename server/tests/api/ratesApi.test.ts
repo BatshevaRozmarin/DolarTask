@@ -1,13 +1,10 @@
+process.env.BASE_URL = 'http://mock-url.com';
+
 import axios from 'axios';
 import { fetchRatesByDateRange } from '../../src/api/ratesApi';
 
-
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
-
-beforeAll(() => {
-  process.env.BASE_URL = 'http://mock-url.com';
-});
 
 describe('fetchRatesByDateRange', () => {
   it('should return rates array if API responds with data', async () => {
