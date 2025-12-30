@@ -1,4 +1,4 @@
-import { app } from './app.js';
+import { app } from './app';
 import { calculateMonthlyAvgHistory } from './utils/calculateMonthlyAvgHistory';
 import { scheduleMonthlyAveragesJob } from './schedule/monthlyJob';
 
