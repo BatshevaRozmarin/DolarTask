@@ -10,7 +10,9 @@ export async function fetchRates(): Promise<RateRow[]> {
         if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
 
         return await res.json();
-    } catch (error: any) {
-        throw new Error(error.message || 'Failed to fetch rates');
+    } catch (error: unknown) {
+        if (error instanceof Error)
+            throw new Error(error.message || 'Failed to fetch rates by date range');
+        throw new Error('Failed to fetch rates by date range');
     }
 }

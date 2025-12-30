@@ -25,7 +25,9 @@ export async function fetchRatesByDateRange(
     return Object.values(response.data.rates).map(
       (day: any) => day.ILS
     );
-  } catch (error: any) {
-    throw new Error(error.message || 'Failed to fetch rates by date range');
+  } catch (error: unknown) {
+    if (error instanceof Error)
+      throw new Error(error.message || 'Failed to fetch rates by date range');
+    throw new Error('Failed to fetch rates by date range');
   }
 }
