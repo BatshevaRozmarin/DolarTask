@@ -6,6 +6,8 @@ on:
 jobs:
   test-lint-client:
     runs-on: ubuntu-latest
+    env:
+      BASE_URL: ${{ secrets.BASE_URL }}
     steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v3
@@ -29,6 +31,8 @@ jobs:
 
   test-lint-server:
     runs-on: ubuntu-latest
+    env:
+      BASE_URL: ${{ secrets.BASE_URL }}
     steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v3

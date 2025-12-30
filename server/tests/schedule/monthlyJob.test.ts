@@ -7,7 +7,7 @@ jest.mock('node-schedule', () => ({
   scheduleJob: jest.fn(),
 }));
 
-jest.mock('../../src/modules/sendMonthlyAvgToDb', () => ({
+jest.mock('../../src/utils/sendMonthlyAvgToDb', () => ({
   sendMonthlyAvgToDb: jest.fn(),
 }));
 
