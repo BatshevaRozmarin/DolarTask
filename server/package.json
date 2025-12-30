@@ -5,21 +5,13 @@
   "main": "dist/server.js",
   "type": "module",
   "scripts": {
-    "seed": "ts-node src/scripts/seedMonthlyRates.ts",
     "start": "node dist/server.js",
-    "dev": "nodemon -L -e ts --exec \"npm run build && npm start\"",
+    "dev": "nodemon -L -e ts --exec \"tsc && node dist/server.js\"",
     "build": "tsc",
     "test": "jest --coverage --passWithNoTests",
-    "lint": "eslint ."
+    "lint": "eslint . --ext .ts"
   },
-  "keywords": [
-    "node",
-    "typescript",
-    "docker",
-    "sql"
-  ],
-  "author": "",
-  "license": "MIT",
+  "keywords": ["node", "typescript", "docker", "sql"],
   "dependencies": {
     "cors": "^2.8.5",
     "node-schedule": "^2.1.1",

@@ -1,14 +1,13 @@
+/** @type {import('ts-jest').JestConfigWithTsJest} */
 module.exports = {
-  env: {
-    node: true,
-    es2020: true,
-    jest: true, 
+  preset: 'ts-jest/presets/default-esm',
+  testEnvironment: 'node',
+  extensionsToTreatAsEsm: ['.ts'],
+  globals: {
+    'ts-jest': {
+      useESM: true
+    }
   },
-  parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-  ],
-  rules: {},
+  moduleFileExtensions: ['ts', 'js', 'json', 'node'],
+  testMatch: ['**/*.test.ts']
 };
