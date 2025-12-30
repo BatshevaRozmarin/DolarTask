@@ -1,5 +1,3 @@
-import { jest } from '@jest/globals';
-
 export default {
   preset: 'ts-jest',
   testEnvironment: 'node',
