@@ -8,7 +8,8 @@
     "start": "node dist/server.js",
     "dev": "nodemon -L -e ts --exec \"npm run build && npm start\"",
     "build": "tsc",
-    "test": "jest --coverage --passWithNoTests"
+    "test": "jest --coverage --passWithNoTests",
+    "lint": "eslint ."
   },
   "keywords": [
     "node",
