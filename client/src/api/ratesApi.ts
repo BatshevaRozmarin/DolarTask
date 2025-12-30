@@ -6,7 +6,7 @@ export async function fetchRates(): Promise<RateRow[]> {
         const url = import.meta.env.VITE_API_URL;
         if (!url) throw new Error("VITE_API_URL is not defined in .env");
 
-        const res = await fetch(`${url}/table`);
+        const res = await fetch(`${url}/rates`);
         if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
 
         return await res.json();

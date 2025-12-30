@@ -8,4 +8,4 @@ export const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use('/table',sqlRouter)
+app.use('/rates',sqlRouter)
