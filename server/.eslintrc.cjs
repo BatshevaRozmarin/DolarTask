@@ -1,24 +1,17 @@
 module.exports = {
-  parser: '@typescript-eslint/parser', 
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module'
-  },
+  root: true,
   env: {
     node: true,
-    jest: true,
-    es2020: true
+    es2020: true,
+    jest: true
   },
+  parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended'
+  ],
   rules: {
     '@typescript-eslint/no-unused-vars': 'warn'
-  },
-  globals: {
-    process: 'readonly',
-    console: 'readonly',
-    describe: 'readonly',
-    it: 'readonly',
-    expect: 'readonly',
-    jest: 'readonly'
   }
 };
