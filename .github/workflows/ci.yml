@@ -1,0 +1,51 @@
+on:
+  push:
+    branches:
+      - dolar-task
+
+jobs:
+  test-lint-client:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v3
+
+      - name: ⚡ Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: 📦 Install dependencies (client)
+        run: npm install
+        working-directory: client
+
+      - name: 🧪 Run tests (client)
+        run: npm test
+        working-directory: client
+
+      - name: 🔍 Run Lint (client)
+        run: npm run lint
+        working-directory: client
+
+  test-lint-server:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v3
+
+      - name: ⚡ Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: 📦 Install dependencies (server)
+        run: npm install
+        working-directory: server
+
+      - name: 🧪 Run tests (server)
+        run: npm test
+        working-directory: server
+
+      - name: 🔍 Run Lint (server)
+        run: npm run lint
+        working-directory: server

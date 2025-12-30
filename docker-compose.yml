@@ -1,0 +1,45 @@
+services:
+  server:
+    container_name: server
+    image: node:20.15
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    tty: true
+    ports:
+      - "${SERVER_PORT}:${SERVER_PORT}"
+    environment:
+      - DATABASE_URL=${DB_CONNECTION}://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_DATABASE}
+    depends_on:
+      - database
+    env_file:
+      - .env
+      - ./server/.env
+  database:
+    container_name: database
+    image: postgres:16.2
+    ports:
+          - "${DB_PORT}:${DB_PORT}"
+    environment:
+      POSTGRES_DB: ${DB_DATABASE}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    env_file:
+      - .env
+    volumes:
+      - ./server/src/db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    tty: true
+    image: client
+    ports:
+      - "${CLIENT_PORT}:${CLIENT_PORT}"
+    environment:
+      VITE_HOST: 0.0.0.0
+    depends_on:
+      - server
+    env_file:
+      - client/.env
